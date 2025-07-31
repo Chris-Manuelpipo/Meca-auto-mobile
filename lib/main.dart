@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'Pages/home_page.dart';
+import 'Pages/login_page.dart';
+import 'Pages/register_page.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
@@ -11,32 +14,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text("Meca Auto")),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                "assets/images/reglages.png",
-                width: 100, // largeur en pixels
-                height: 100, // hauteur en pixels
-                fit: BoxFit.contain, // comment l’image s’adapte
-              ),
-              Text(
-                "Bienvenue sur l'application de vente des pièces automobiles",
-                style: TextStyle(fontSize: 32),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                "Tous types de pièces automobiles aux meilleurs prix",
-                style: TextStyle(fontSize: 23),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      ),
+      title: 'Login/Register App',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
