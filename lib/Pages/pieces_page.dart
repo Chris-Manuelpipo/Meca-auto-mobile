@@ -18,33 +18,38 @@ class _PiecesPageState extends State<PiecesPage> {
     {
       "name": "Moteur",
       "brand": "Audi",
-      "specification": "7",
+      "specification": "8",
       "image": "image2",
+    },
+    {
+      "name": "Moteur",
+      "brand": "Audi",
+      "specification": "10",
+      "image": "image3",
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Liste des pièces automobiles")),
-      body: Center(
-        child: ListView.builder(
-          itemCount: pieces.length,
-          itemBuilder: (context, index) {
-            final piece = pieces[index];
-            final image = piece['image'];
-            return Card(
-              child: ListTile(
-                leading: Image.asset(
-                  "assets/images/reglages.png", // comment l’image s’adapte
-                ),
-                title: Text('Two-line ListTile'),
-                subtitle: Text('Here is a second line'),
-                trailing: Icon(Icons.more_vert),
-              ),
-            );
-          },
-        ),
+    return Center(
+      child: ListView.builder(
+        itemCount: pieces.length,
+        itemBuilder: (context, index) {
+          final piece = pieces[index];
+          final image = piece['image'];
+          final name = piece['name'];
+          final brand = piece['brand'];
+          final specification = piece['specification'];
+          return Card(
+            child: ListTile(
+              leading: Image.asset("assets/images/$image.jpeg"),
+              contentPadding: EdgeInsets.all(20),
+              title: Text('$name $brand'),
+              subtitle: Text('Nombre de cylindres : $specification'),
+              trailing: Icon(Icons.more_vert),
+            ),
+          );
+        },
       ),
     );
   }
