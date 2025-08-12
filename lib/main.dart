@@ -29,17 +29,17 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: [
-            Text("Accueil"),
-            Text("Liste des pièces disponibles"),
-            Text("Mes achats"),
-            Text("Mon compte"),
-          ][_currentIndex],
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: Colors.white,
+        //   title: [
+        //     Text("Accueil"),
+        //     Text("Liste des pièces disponibles"),
+        //     Text("Mes achats"),
+        //     Text("Mon compte"),
+        //   ][_currentIndex],
+        // ),
         body: [
-          HomePage(),
+          HomePage(onChangeTab: setCurrentIndex),
           PiecesPage(),
           CartPage(),
           MyAccountPage(),
@@ -49,13 +49,13 @@ class _MyAppState extends State<MyApp> {
           onTap: (index) => setCurrentIndex(index),
           selectedItemColor: Colors.red,
           unselectedItemColor: Colors.black,
-          backgroundColor: const Color.fromARGB(255, 10, 28, 43),
+          backgroundColor: Colors.white,
           iconSize: 30,
           elevation: 10,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Accueil"),
             BottomNavigationBarItem(
-              icon: Icon(Icons.category_outlined),
+              icon: Icon(Icons.grid_view_rounded),
               label: 'Catégories',
             ),
             BottomNavigationBarItem(
