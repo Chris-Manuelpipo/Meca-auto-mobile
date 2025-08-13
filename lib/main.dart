@@ -45,6 +45,7 @@ class _MyAppState extends State<MyApp> {
           MyAccountPage(),
         ][_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
           onTap: (index) => setCurrentIndex(index),
           selectedItemColor: Colors.red,
